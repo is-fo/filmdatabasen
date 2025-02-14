@@ -19,20 +19,15 @@ public class MovieUtilGTest {
                 List.of("Thriller", "Adventure"),
                 124,
                 List.of("Roy Scheider", "Robert Shaw", "Richard Dreyfuss", "Jesper Ekstedt"),
-                "https://example.com/jaws.jpg",
                 "A small town is terrorized by a monstrous great white shark...",
                 List.of("English", "Spanish", "Dutch"),
                 new Date(75, Calendar.JUNE, 20), // Deprecated way to set year
                 List.of("Steven Spielberg"),
                 "PG",
-                Map.of("Wins", 3, "Nominations", 6),
-                "2024-02-13T12:00:00Z",
                 1975,
                 8.0,
                 List.of("USA"),
-                "movie",
-                Map.of("critic", 9.5, "audience", 8.2),
-                1500
+                "movie"
         ));
 
         movies.add(new Movie(
@@ -42,20 +37,15 @@ public class MovieUtilGTest {
                 List.of("Drama"),
                 133,
                 List.of("Jack Nicholson", "Louise Fletcher", "Danny DeVito", "Jesper Ekstedt"),
-                "https://example.com/cuckoosnest.jpg",
                 "A rebellious patient fights against the oppressive system...",
                 List.of("English"),
                 new Date(75, Calendar.NOVEMBER, 19),
                 List.of("Milos Forman"),
                 "R",
-                List.of("Wins", 5, "Nominations", 9),
-                "2024-02-13T12:00:00Z",
                 1975,
                 8.7,
                 List.of("USA"),
-                "movie",
-                List.of("critic", 9.3, "audience", 8.5),
-                1200
+                "movie"
         ));
 
         movies.add(new Movie(
@@ -65,20 +55,15 @@ public class MovieUtilGTest {
                 List.of("Comedy", "Adventure"),
                 91,
                 List.of("Graham Chapman", "John Cleese", "Eric Idle"),
-                "https://example.com/holygrail.jpg",
                 "A parody of the Arthurian legend featuring absurd humor...",
                 List.of("English"),
                 new Date(75, Calendar.APRIL, 3),
                 List.of("Terry Gilliam", "Terry Jones"),
                 "PG",
-                Map.of("Wins", 1, "Nominations", 2),
-                "2024-02-13T12:00:00Z",
                 1975,
                 8.2,
                 List.of("UK"),
-                "movie",
-                List.of("critic", 9.0, "audience", 8.4),
-                900
+                "movie"
         ));
     }
 

@@ -9,20 +9,15 @@ public record Movie(String _id,
                     List<String> genres,
                     Integer runtime,
                     List<String> cast,
-                    String poster,
                     String fullplot,
                     List<String> languages,
                     Date released,
                     List<String> directors,
                     String rated,
-                    Object awards,
-                    String lastupdated,
                     Integer year,
                     Double rating,
                     List<String> countries,
-                    String type,
-                    Object tomatoes,
-                    Integer num_mflix_comments
+                    String type
                     ) {
 
 
@@ -36,20 +31,15 @@ public record Movie(String _id,
                 doc.getList("genres", String.class),
                 doc.getInteger("runtime"),
                 doc.getList("cast", String.class),
-                doc.getString("poster"),
                 doc.getString("fullplot"),
                 doc.getList("languages", String.class),
                 doc.getDate("released"),
                 doc.getList("directors", String.class),
                 doc.getString("rated"),
-                doc.get("awards"),
-                doc.getString("lastupdated"),
                 doc.getInteger("year"),
                 doc.get("imdb", Document.class) != null ? doc.get("imdb", Document.class).getDouble("rating") : 0.0,
                 doc.getList("countries", String.class),
-                doc.getString("type"),
-                doc.get("tomatoes"),
-                doc.getInteger("num_mflix_comments")
+                doc.getString("type")
         );
     }
 }
