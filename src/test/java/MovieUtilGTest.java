@@ -21,7 +21,7 @@ public class MovieUtilGTest {
                 List.of("Roy Scheider", "Robert Shaw", "Richard Dreyfuss", "Jesper Ekstedt"),
                 "https://example.com/jaws.jpg",
                 "A small town is terrorized by a monstrous great white shark...",
-                List.of("English"),
+                List.of("English", "Spanish", "Dutch"),
                 new Date(75, Calendar.JUNE, 20), // Deprecated way to set year
                 List.of("Steven Spielberg"),
                 "PG",
@@ -124,5 +124,20 @@ public class MovieUtilGTest {
     void actorInMostMovies() {
         init();
         assertEquals("Jesper Ekstedt", MovieUtilG.actorInMostMovies(movies));
+    }
+
+    @Test
+    void uniqueLanguages() {
+        init();
+        assertEquals(3, MovieUtilG.uniqueLanguages(movies));
+    }
+
+    @Test
+    void duplicateTitle() {
+        init();
+        assertEquals(false, MovieUtilG.duplicateTitle(movies));
+
+        List<Movie> dupes = List.of(movies.getFirst(), movies.getFirst());
+        assertEquals(true, MovieUtilG.duplicateTitle(dupes));
     }
 }

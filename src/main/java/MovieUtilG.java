@@ -1,7 +1,4 @@
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -42,24 +39,43 @@ public class MovieUtilG {
     }
 
     static Integer numActorsInMultipleMovies(List<Movie> movies) {
-        List<String> actors = movies.stream()
+        return movies.stream()
                 .flatMap(m -> m.cast().stream())
-                .collect(Collectors.toList());
-
-        return actors.size() - (int) actors.stream().distinct().count();
+                .collect(Collectors.groupingBy(a -> a, Collectors.counting()))
+                .values()
+                .stream()
+                .filter(v -> v > 1)
+                .collect(Collectors.toList())
+                .size();
     }
 
     static String actorInMostMovies(List<Movie> movies) {
         return movies.stream()
                 .flatMap(m -> m.cast().stream())
-                .collect(Collectors.groupingBy(actor -> actor, Collectors.counting()))
+                .collect(Collectors.groupingBy(a -> a, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .max(Comparator.comparingLong(Map.Entry::getValue))
                 .map(Map.Entry::getKey)
                 .orElse("Nothing found");
+    }
 
+    static Integer uniqueLanguages(List<Movie> movies) {
+        return (int) movies.stream()
+                .flatMap(m -> m.languages().stream())
+                .distinct()
+                .count();
+    }
 
+    static Boolean duplicateTitle(List<Movie> movies) {
+        return !movies.stream()
+                .map(Movie::title)
+                .collect(Collectors.groupingBy(t -> t, Collectors.counting()))
+                .values()
+                .stream()
+                .filter(v -> v > 1)
+                .collect(Collectors.toList())
+                .isEmpty();
     }
 
 }

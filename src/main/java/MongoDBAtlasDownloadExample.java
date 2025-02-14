@@ -29,9 +29,15 @@ public class MongoDBAtlasDownloadExample {
 //                System.out.println(movie);
             }
 
-            System.out.println(MovieUtilG.countMovies(movieList));
-            System.out.println(MovieUtilG.longestRuntime(movieList));
-            System.out.println(MovieUtilG.uniqueGenres(movieList));
+            System.out.println("Antal filmer: "+MovieUtilG.countMovies(movieList));
+            System.out.println("Längsta filmen: "+MovieUtilG.longestRuntime(movieList));
+            System.out.println("Unika genrer: "+MovieUtilG.uniqueGenres(movieList));
+            System.out.println("Skådisar i filmen med högst betyg: "+MovieUtilG.actorsInHighestRated(movieList));
+            System.out.println("Filmen med minst antal skådisar: "+MovieUtilG.titleFewestActors(movieList));
+            System.out.println("Antal skådisar medverkande i mer än (1) film: "+MovieUtilG.numActorsInMultipleMovies(movieList));
+            System.out.println("Skådisen i flest filmer: "+MovieUtilG.actorInMostMovies(movieList));
+            System.out.println("Antal unika språk: "+MovieUtilG.uniqueLanguages(movieList));
+            System.out.println("Finns det filmer med samma titel: "+MovieUtilG.duplicateTitle(movieList));
 
             //Här gör du anrop till alla dina funktioner som ska skriva ut svaren på frågorna som
             //efterfrågas i uppgiften
