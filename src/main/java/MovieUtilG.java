@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class MovieUtilG {
@@ -68,14 +67,7 @@ public class MovieUtilG {
     }
 
     static Boolean duplicateTitle(List<Movie> movies) {
-        return !movies.stream()
-                .map(Movie::title)
-                .collect(Collectors.groupingBy(t -> t, Collectors.counting()))
-                .values()
-                .stream()
-                .filter(v -> v > 1)
-                .collect(Collectors.toList())
-                .isEmpty();
+        return movies.stream().map(Movie::runtime).distinct().count() != movies.size();
     }
 
 }
