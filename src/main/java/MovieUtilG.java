@@ -70,4 +70,15 @@ public class MovieUtilG {
         return movies.stream().map(Movie::runtime).distinct().count() != movies.size();
     }
 
+    static List<String> highestRated(List<Movie> movies) {
+        Double max = movies.stream()
+                .max(Comparator.comparingDouble(Movie::rating))
+                .get().rating();
+
+        return movies.stream()
+                .filter(m -> m.rating().equals(max))
+                .map(Movie::title)
+                .toList();
+    }
+
 }

@@ -38,6 +38,7 @@ public class MongoDBAtlasDownloadExample {
             System.out.println("Skådisen i flest filmer: "+MovieUtilG.actorInMostMovies(movieList));
             System.out.println("Antal unika språk: "+MovieUtilG.uniqueLanguages(movieList));
             System.out.println("Finns det filmer med samma titel: "+MovieUtilG.duplicateTitle(movieList));
+            System.out.println(MovieUtilG.highestRated(movieList));
 
             //Här gör du anrop till alla dina funktioner som ska skriva ut svaren på frågorna som
             //efterfrågas i uppgiften
