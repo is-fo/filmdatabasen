@@ -9,7 +9,11 @@ public class MongoDBAtlasDownloadExample {
     public MongoDBAtlasDownloadExample() {
 
         String pw = System.getenv("dbpw");
+        if (pw.length() == 0) {
+            throw new RuntimeException("Lösenordet lästes inte in");
+        }
         //Skriv in rätt url!
+
         String uri = "mongodb+srv://isakfolke:" + pw + "@dbteknik.stwun.mongodb.net/?retryWrites=true&w=majority";
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {
