@@ -103,12 +103,14 @@ public class MovieUtilGTest {
     void numActorsInMultipleMovies() {
         init();
         assertEquals(1, MovieUtilG.numActorsInMultipleMovies(movies));
+        assertEquals(1, MovieUtilVG.numActorsInMultipleMovies(movies));
     }
 
     @Test
     void actorInMostMovies() {
         init();
         assertEquals("Jesper Ekstedt", MovieUtilG.actorInMostMovies(movies));
+        assertEquals("Jesper Ekstedt", MovieUtilVG.actorInMostMovies(movies));
     }
 
     @Test
