@@ -24,10 +24,12 @@ public class MovieUtilVG {
                 .orElse("Nothing found");
     }
 
-    private static Map<String, Long> groupingByCounting(List<Movie> movies, Function<Movie, List<String>> method) {
+    private static Map<String, Long> groupingByCounting(
+            List<Movie> movies,
+            Function<Movie, List<String>> method) {
         return movies.stream()
                 .flatMap(m -> method.apply(m).stream())
-                .collect(Collectors.groupingBy(e-> e, Collectors.counting()));
+                .collect(Collectors.groupingBy(e -> e, Collectors.counting()));
     }
 
 }
