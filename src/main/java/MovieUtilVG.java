@@ -1,13 +1,13 @@
+import com.mongodb.Function;
+
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class MovieUtilVG {
 
     static Integer numActorsInMultipleMovies(List<Movie> movies) {
-        return movies.stream()
-                .flatMap(m -> m.cast().stream())
-                .collect(Collectors.groupingBy(a -> a, Collectors.counting()))
+        return
+                groupingByCounting(movies, Movie::cast)
                 .values()
                 .stream()
                 .filter(v -> v > 1)
@@ -24,13 +24,12 @@ public class MovieUtilVG {
                 .orElse("Nothing found");
     }
 
-    private static Map<String, Long> groupingByCounting(
+    private static <T> Map<T, Long> groupingByCounting(
             List<Movie> movies,
-            Function<Movie, List<String>> method) {
+            Function<Movie, List<T>> method) {
         return movies.stream()
                 .flatMap(m -> method.apply(m).stream())
                 .collect(Collectors.groupingBy(e -> e, Collectors.counting()));
     }
 
 }
-

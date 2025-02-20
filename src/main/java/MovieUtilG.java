@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 public class MovieUtilG {
     static Long countMovies(List<Movie> movies) {
         return movies.stream()
+                .filter(m -> m.year() == 1975)
                 .count();
     }
 
